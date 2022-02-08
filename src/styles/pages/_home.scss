@@ -1,0 +1,63 @@
+.home {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 67%;
+  margin: auto;
+  top: -100px;
+
+  .header {
+    position: relative;
+    img {
+      position: absolute;
+      z-index: -10;
+      right: 5em;
+      top: -6em;
+      width: 50%;
+      min-width: 280px;
+    }
+  
+  
+    .home__title {
+      position: relative;
+      text-transform: uppercase;
+      font-family: $font-2;
+      font-size: clamp(3rem, 9vw, 5rem);
+      line-height: 1em;
+      &--block {display: block;}
+    }
+  }
+
+  .home__subtitle {
+    font-size: clamp(1.3rem, 2vw, 2rem);
+    margin-bottom: 2em;
+    &--block {display: block;}
+  }
+
+  .home__studies {
+    font-size: clamp(1.2rem, 1.8vw, 1.9rem);
+    margin-bottom: 2em;
+    &--block {display: block;}
+    color: $grey;
+  }
+
+  .home__download {
+    font-family: $font-1;
+    text-transform: uppercase;
+    font-size: clamp(1rem, 1.8vw, 1.5rem);
+
+    .link { margin-right: 1.5em;}
+    i {
+      padding: .5em;
+      background-color: $pink;
+      border-radius: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: 862px) {
+  .home {
+    width: 90%;
+  }
+}

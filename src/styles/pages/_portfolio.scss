@@ -1,0 +1,254 @@
+.blob3 {
+	position: absolute;
+	top: 21%;
+	left: 56%;
+	z-index: -10;
+}
+
+.portfolio {
+	height: 85vh;
+  padding-bottom: 1em;
+
+}
+.radioDisplay {
+	display: grid;
+  grid-template-columns: repeat(auto-fill, 159px);
+	justify-content: center;
+	width: 90%;
+  margin: 0 auto 2em auto;
+  border-radius: 20px;
+  padding: 1em;
+  background: rgb(40, 40, 40);
+
+	.radio {
+    margin: 0.5rem;
+    display: flex;
+    align-items: center;
+
+    i {
+      padding-left: .5em;
+      font-size: 1.2rem;
+    }
+
+    input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      + .radio-label {
+        &:before {
+          content: '';
+          background: #fff;
+          border-radius: 100%;
+          display: inline-block;
+          width: 1.4em;
+          height: 1.4em;
+          margin-right: 0.4em; 
+          vertical-align: top;
+          cursor: pointer;
+          text-align: center;
+          transition: all 250ms ease;
+        }
+      }
+      &:checked {
+        + .radio-label {
+          &:before {
+            background-color: $orange;
+            box-shadow: inset 0 0 0 4px #fff;
+          }
+        }
+      }
+      &:focus {
+        + .radio-label {
+          &:before {
+            outline: none;
+            border-color: blue;
+          }
+        }
+      }
+    }}
+}
+
+.projects {
+	width: 80%;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	height: 45%;
+	gap: 1em;
+
+	.project {
+		width: 32%;
+		min-width: 240px;
+		border-radius: 30px;
+		background-color: $white;
+		overflow: hidden;
+		margin: 0 auto;
+		box-shadow: 0 0 4px 0 $black;
+		max-height: 400px;
+	}
+
+		.icons {
+			display: flex;
+			justify-content: space-around;
+			margin-bottom: 1.5em;
+			background-color: #424242;
+			padding: 1em;
+
+			i {
+				font-size: 2rem;
+			}
+		}
+
+		.content {
+			padding: 0 1em;
+			color: $black;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			h3 {
+				display: flex;
+				justify-content: center;
+				margin-bottom: 1em;
+			}
+
+			img {
+				width: 100%;
+				object-fit: cover;
+				box-shadow: 0px 0px 4px 0 $black;
+				border-radius: 15px;
+				cursor: pointer;
+				transition: all .1s ease-in-out;
+
+				&:hover {
+					scale: 1.02;
+				}
+			}
+
+			.infos {
+				i {
+					display: flex;
+					font-size: 2rem;
+					cursor: pointer;
+					transition: all 0.1s ease-in;
+					width: 32px;
+					height: 32px;
+					margin: auto;
+					color: $grey;
+
+					&:hover {
+						scale: 1.1;
+					}
+				}
+			}
+		}
+
+		.showInfos {
+			position: fixed;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background-color: rgba(0, 0, 0, 0.507);
+			animation: popup 0.1s ease forwards;
+			transform-origin: center;
+
+			.infosContent {
+				position: relative;
+				top: 25%;
+				width: clamp(350px, 40vw, 600px);
+				background-color: $white;
+				margin: 0 auto;
+				color: $black;
+				border-radius: 20px;
+				padding: 2rem;
+				box-shadow: 0 10px 10px $black;
+				animation: popup 0.3s ease forwards;
+				transform: scale(0);
+				transform-origin: center;
+
+				@keyframes popup {
+					to {
+						transform: scale(1);
+					}
+				}
+			}
+			.head {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				margin: 1rem auto;
+				width: 95%;
+			}
+			h2 {
+				text-align: left;
+				margin-bottom: 1rem;
+			}
+
+			.button {
+				cursor: pointer;
+				color: $black;
+				display: flex;
+				justify-content: center;
+				background: $white;
+				border-radius: 20px;
+				padding: 1rem;
+				transition: 0.2s;
+				border: 1px solid $orange;
+
+				i {
+					font-size: 1.5rem;
+					margin-right: 10px;
+				}
+
+				&:hover {
+					color: $white;
+					background: $orange;
+					border: 1px solid $orange;
+				}
+			}
+
+			.source {
+				background-color: $orange;
+				color: $white;
+				transition: 0.2s;
+				&:hover {
+					background-color: $orange-2;
+				}
+			}
+
+			.infos {
+				width: 95%;
+				margin: 0 auto 2em auto;
+			}
+
+			.return {
+				width: 200px;
+			}
+		}
+	
+}
+
+@media screen and (max-width: 777px) {
+	.projects {
+		.project:last-child {
+			margin-bottom: 2em;
+		}
+		.showInfos {
+			.head {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				margin: unset;
+				width: 100%;
+
+				.sourceCode {
+					a {
+						border-radius: 50%;
+						i {margin: unset;}
+						span {display: none;}
+					}
+				}
+			}	
+		}
+	} 
+}

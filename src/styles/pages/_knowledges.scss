@@ -1,0 +1,128 @@
+.knowledges {
+	width: 70%;
+	margin: auto;
+  padding-bottom: 1em;
+
+
+	.years {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		color: $grey;
+		height: 5%;
+
+		.oneYear,
+		.twoYear {
+			position: relative;
+		}
+		.oneYear:before,
+		.twoYear:before {
+			content: '';
+			position: absolute;
+			height: 46em;
+			width: 1px;
+			background-color: $grey;
+			opacity: 0.5;
+			top: 34px;
+		}
+	}
+
+	.progress-bars {
+		height: 95%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+
+		.languagesDisplay {
+			&:not(:last-child) {
+				margin-bottom: 2em;
+			}
+	
+			h3 {
+				font-size: clamp(1.2rem, 3vw, 1.7rem);
+				margin-bottom: .5em;
+			}
+	
+			.languagesList {
+				&:not(:last-child) {
+					margin-bottom: 2.5em;
+				}
+	
+				li {
+					display: flex;
+					margin-bottom: 1em;
+					align-items: center;
+	
+					p {
+						font-size: clamp(1rem, 3vw, 1.4rem);
+						width: 120px;
+					}
+	
+					i {
+						margin-right: 1em;
+						color: unset;
+						font-size: 2rem;
+						width: 25px;
+					}
+				}
+	
+				.progressBar {
+					background-color: transparent;
+					border-radius: 50px;
+					height: 5px;
+					position: relative;
+	
+					&:after {
+						content: '';
+						position: absolute;
+						background-color: $blue;
+						border-radius: 50px;
+						height: 5px;
+						width: 0;
+						animation: line 2s ease-out forwards;
+	
+						@keyframes line {
+							to {
+								width: 100%;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+}
+
+
+@media screen and (max-width: 862px) {
+	.knowledges {
+		width: 90%;
+
+		.years {
+			padding-top: 1em;
+			.oneYear::before, .twoYear::before {
+				height: 31em;
+			}
+		}
+
+		.progress-bars {
+			.languagesDisplay { 
+				margin: unset;
+				height: unset;
+				
+				.languagesList:not(:last-child) {
+					margin-bottom: .5em;
+				}
+
+				h3 {
+					margin-bottom: .5em;
+				}
+	
+				&:first-child{ margin-bottom: unset}
+				.years {margin: unset;}
+				.languagesList {margin-bottom: 4em;}
+			}
+		}
+	}
+}
